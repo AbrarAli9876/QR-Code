@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Location Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="card">
+    <div class="eyebrow">QR LOCATION DEMO</div>
+    <h1>Share a location link</h1>
+    <p class="intro">Scan this QR code to open a page that can show your current location after you choose to allow it.</p>
+    <div class="qr-frame">
+      <img src="{{ url_for('qr_png') }}" alt="QR code that opens the location page">
+    </div>
+    <p class="target-label">QR destination</p>
+    <p class="target">{{ target_url }}</p>
+    <a class="button" href="{{ url_for('location') }}">Test location page on this device</a>
+    <div class="notice">
+      <strong>Privacy:</strong> This demo displays coordinates on the scanner’s device only. It does not send or save location data to a server.
+    </div>
+    <p class="small">For phone scanning, use an HTTPS tunnel URL in <code>APP_BASE_URL</code>. Browser geolocation usually requires HTTPS (except localhost).</p>
+  </main>
+</body>
+</html>
